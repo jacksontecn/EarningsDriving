@@ -32,3 +32,60 @@ This project is a financial management system for ride-hailing drivers, allowing
 4- Financial reports by week, month, and year
 
 5- Revenue queries for specific periods
+
+## DIAGRAMA DE CLASSE ##
+
+classDiagram
+    class User {
+        -Long id
+        -String name
+        -List<Earnings> earnings
+        -List<Expenses> expenses
+        +User(Long id, String name)
+        +void addEarnings(Earnings earning)
+        +void addExpenses(Expenses expense)
+        +double calculateBalance(Date date)
+    }
+    
+    ```mermaid
+classDiagram
+    class User {
+        -Long id
+        -String name
+        -List<Earnings> earnings
+        -List<Expenses> expenses
+        +User(Long id, String name)
+        +void addEarnings(Earnings earning)
+        +void addExpenses(Expenses expense)
+        +double calculateBalance(Date date)
+    }
+    
+    class Earnings {
+        -Long id
+        -double amount
+        -Date date
+        +Earnings(Long id, double amount, Date date)
+    }
+    
+    class Expenses {
+        -Long id
+        -double amount
+        -Date date
+        +Expenses(Long id, double amount, Date date)
+    }
+    
+    class FinancialReport {
+        -Long id
+        -String period
+        -double totalEarnings
+        -double totalExpenses
+        +FinancialReport(Long id, String period)
+        +double calculateWeeklyEarnings()
+        +double calculateMonthlyEarnings()
+        +double calculateAnnualEarnings()
+        +void generateReport(User user)
+    }
+    
+    User "1" -- "*" Earnings : records
+    User "1" -- "*" Expenses : records
+    User "1" -- "*" FinancialReport : consults
