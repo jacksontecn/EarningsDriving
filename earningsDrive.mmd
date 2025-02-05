@@ -1,0 +1,42 @@
+classDiagram
+    class Driver {
+        -int id
+        -String name
+        -String cpf
+        -String vehiclePlate
+        -List<Ride> rides
+        +Driver(int id, String name, String cpf, String vehiclePlate)
+        +void addRide(Ride ride)
+        +double calculateDailyEarnings(String date)
+    }
+
+    class Ride {
+        -int id
+        -String origin
+        -String destination
+        -double fare
+        -String date
+        +Ride(int id, String origin, String destination, double fare, String date)
+        +double calculateCommission(double rate)
+    }
+
+    class Payment {
+        -int id
+        -double amount
+        -String date
+        -String paymentMethod
+        +Payment(int id, double amount, String date, String paymentMethod)
+        +void processPayment()
+    }
+
+    class Report {
+        -int id
+        -String period
+        -double totalEarnings
+        +Report(int id, String period, double totalEarnings)
+        +void generateReport(Driver driver)
+    }
+
+    Driver "1" -- "*" Ride : performs
+    Ride "1" -- "1" Payment : generates
+    Driver "1" -- "*" Report : consults
