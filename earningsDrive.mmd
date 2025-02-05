@@ -1,42 +1,41 @@
 classDiagram
-    class Driver {
-        -int id
+    class User {
+        -Long id
         -String name
-        -String cpf
-        -String vehiclePlate
-        -List<Ride> rides
-        +Driver(int id, String name, String cpf, String vehiclePlate)
-        +void addRide(Ride ride)
-        +double calculateDailyEarnings(String date)
+        -List<Earnings> earnings
+        -List<Expenses> expenses
+        +User(Long id, String name)
+        +void addEarnings(Earnings earning)
+        +void addExpenses(Expenses expense)
+        +double calculateBalance(Date date)
     }
-
-    class Ride {
-        -int id
-        -String origin
-        -String destination
-        -double fare
-        -String date
-        +Ride(int id, String origin, String destination, double fare, String date)
-        +double calculateCommission(double rate)
-    }
-
-    class Payment {
-        -int id
+    
+    class Earnings {
+        -Long id
         -double amount
-        -String date
-        -String paymentMethod
-        +Payment(int id, double amount, String date, String paymentMethod)
-        +void processPayment()
+        -Date date
+        +Earnings(Long id, double amount, Date date)
     }
-
-    class Report {
-        -int id
+    
+    class Expenses {
+        -Long id
+        -double amount
+        -Date date
+        +Expenses(Long id, double amount, Date date)
+    }
+    
+    class FinancialReport {
+        -Long id
         -String period
         -double totalEarnings
-        +Report(int id, String period, double totalEarnings)
-        +void generateReport(Driver driver)
+        -double totalExpenses
+        +FinancialReport(Long id, String period)
+        +double calculateWeeklyEarnings()
+        +double calculateMonthlyEarnings()
+        +double calculateAnnualEarnings()
+        +void generateReport(User user)
     }
-
-    Driver "1" -- "*" Ride : performs
-    Ride "1" -- "1" Payment : generates
-    Driver "1" -- "*" Report : consults
+    
+    User "1" -- "*" Earnings : records
+    User "1" -- "*" Expenses : records
+    User "1" -- "*" FinancialReport : consults
