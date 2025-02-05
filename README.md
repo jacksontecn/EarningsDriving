@@ -22,6 +22,7 @@ Este projeto é um sistema de controle financeiro para motoristas de aplicativo,
 This project is a financial management system for ride-hailing drivers, allowing them to track daily earnings and expenses. The system provides functionalities to calculate the daily balance and generate financial reports on a weekly, monthly, and yearly basis.
 
 🛠️ Features:
+
 1- Daily earnings registration
 
 2- Expense tracking
