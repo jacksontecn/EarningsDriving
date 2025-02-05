@@ -3,7 +3,7 @@
 Este projeto é um sistema de controle financeiro para motoristas de aplicativo, permitindo o registro de ganhos e despesas diárias. O sistema oferece funcionalidades para calcular o saldo diário, além de gerar relatórios financeiros semanais, mensais e anuais.
 
 🛠️ Funcionalidades:
-Cadastro de ganhos diários
+Cadastro de ganhos diários 
 Registro de despesas
 Cálculo automático do saldo
 Relatórios financeiros por semana, mês e ano
