@@ -34,20 +34,9 @@ This project is a financial management system for ride-hailing drivers, allowing
 5- Revenue queries for specific periods
 
 ## DIAGRAMA DE CLASSE ##
-
-classDiagram
-    class User {
-        -Long id
-        -String name
-        -List<Earnings> earnings
-        -List<Expenses> expenses
-        +User(Long id, String name)
-        +void addEarnings(Earnings earning)
-        +void addExpenses(Expenses expense)
-        +double calculateBalance(Date date)
-    }
     
-    ```mermaid
+```mermaid
+
 classDiagram
     class User {
         -Long id
