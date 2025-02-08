@@ -1,16 +1,21 @@
-package com.mowtechnologies.earnings_driving.model;
+package com.mowtechnologies.earnings_driving.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Entity
+@Data
 public class FinancialReport {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String period;
     private Double totalEarnings;
     private Double totalExpenses;
 
-    public FinancialReport(Long id, String period) {
-        this.id = id;
-        this.period = period;
-    }
 
     public Double calculateWeeklyEarnings(){
         return null;

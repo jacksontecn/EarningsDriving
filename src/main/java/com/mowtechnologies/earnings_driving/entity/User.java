@@ -1,19 +1,27 @@
-package com.mowtechnologies.earnings_driving.model;
+package com.mowtechnologies.earnings_driving.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Data
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @OneToMany
     private List<Earnings> earningsList;
+    @OneToMany
     private List<Expenses> expensesList;
 
-    public User(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+//    public User(String name) {
+//        this.name = name;
+//    }
 
     public void addEarnings(Earnings earnings){
 
